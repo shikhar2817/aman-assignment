@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-function App() {
+function LoginForm() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [disable, setDisable] = useState(false);
@@ -44,4 +44,4 @@ function App() {
     );
 }
 
-export default App;
+export default LoginForm;
