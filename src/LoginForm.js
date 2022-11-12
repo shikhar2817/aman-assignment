@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function LoginForm() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [disable, setDisable] = useState(false);
+    const [disable, setDisable] = useState(true);
 
     const onSubmit = () => {
-        setDisable(true);
+        setDisable(false);
         const data = { username: username, password: password };
         console.log(data);
         return data;
     };
+
+    // useEffect(() => {
+    //     if (username.length > 0 && password.length() > 0) setDisable(false);
+    // });
 
     return (
         <div>
@@ -36,7 +40,15 @@ function LoginForm() {
                     />
                 </div>
                 <br />
-                <button disabled={disable} id="login-button" onClick={onSubmit}>
+                <button
+                    disabled={
+                        password.length > 0 && username.length > 0
+                            ? false
+                            : true
+                    }
+                    id="login-button"
+                    onClick={onSubmit}
+                >
                     Submit
                 </button>
             </div>
